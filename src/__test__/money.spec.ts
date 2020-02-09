@@ -13,10 +13,13 @@ describe('Dollar', () => {
   })
   describe('#equals', () => {
     test('$5 == $5', () => {
-      expect(new Dollar(5)).toEqual(new Dollar(5));
+      expect(new Dollar(5).equals(new Dollar(5))).toBe(true);
     })
     test('$5 != $6', () => {
-      expect(new Dollar(5)).not.toEqual(new Dollar(6));
+      expect(new Dollar(5).equals(new　Dollar(6))).toBe(false);
+    })
+    test('$5 != 5CHF', () => {
+      expect(new Dollar(5).equals(new Franc(5))).toBe(false);
     })
   })
 })
@@ -33,10 +36,10 @@ describe('Franc', () => {
   })
   describe('#equals', () => {
     test('$5 == $5', () => {
-      expect(new Franc(5)).toEqual(new Franc(5));
+      expect(new Franc(5).equals(new Franc(5))).toBe(true);
     })
     test('$5 != $6', () => {
-      expect(new Franc(5)).not.toEqual(new Franc(6));
+      expect(new Franc(5).equals(new Franc(6))).toBe(false);
     })
   })
 })
