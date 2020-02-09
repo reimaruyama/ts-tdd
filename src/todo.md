@@ -13,3 +13,4 @@
 - [ ] timesの一般化
 - [x] FrancとDollarを比較する
 - [ ] 通過の概念
+- [ ] francのtimesメソッドのテストを削除する
