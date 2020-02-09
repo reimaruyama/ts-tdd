@@ -5,19 +5,17 @@ describe('Dollar', () => {
     test('$5 * 2 = $10, $5 * 3 = $15', () => {
       const five = new Dollar(5);
 
-      var product: Dollar = five.times(2);
-      expect(product.amount).toEqual(10);
+      expect(five.times(2)).toEqual(new Dollar(10));
 
-      var product: Dollar = five.times(3);
-      expect(product.amount).toEqual(15);
+      expect(five.times(3)).toEqual(new Dollar(15));
     })
   })
   describe('#equals', () => {
     test('$5 == $5', () => {
-      expect(new Dollar(5).equals(new Dollar(5))).toEqual(true);
+      expect(new Dollar(5)).toEqual(new Dollar(5));
     })
     test('$5 != $6', () => {
-      expect(new Dollar(5).equals(new Dollar(6))).toEqual(false);
+      expect(new Dollar(5)).not.toEqual(new Dollar(6));
     })
   })
 })

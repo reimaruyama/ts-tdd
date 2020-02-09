@@ -1,6 +1,6 @@
 - [ ] 5$ + 10CHF = 10$ (レートが2:1の場合)
 - [x] $5 * 2 = $10
-- [ ] amountをpriateにする
+- [x] amountをpriateにする
 - [x] Dollarの副作用を解決する
 - [ ] Moneyの丸め処理
 - [x] equalsメソッドの実装
