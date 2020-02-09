@@ -12,4 +12,12 @@ describe('Dollar', () => {
       expect(product.amount).toEqual(15);
     })
   })
+  describe('#equals', () => {
+    test('$5 == $5', () => {
+      expect(new Dollar(5).equals(new Dollar(5))).toEqual(true);
+    })
+    test('$5 != $6', () => {
+      expect(new Dollar(5).equals(new Dollar(6))).toEqual(false);
+    })
+  })
 })

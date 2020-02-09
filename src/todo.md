@@ -3,3 +3,7 @@
 - [ ] amountをpriateにする
 - [x] Dollarの副作用を解決する
 - [ ] Moneyの丸め処理
+- [x] equalsメソッドの実装
+- [ ] hascodeメソッドの実装
+- [ ] nullとの等価性比較
+- [ ] 他のオブジェクトとの比較
