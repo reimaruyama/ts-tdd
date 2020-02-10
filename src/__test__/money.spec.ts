@@ -1,5 +1,11 @@
 import Money from '../money';
-import Franc from '../franc';
+
+describe('Money', () => {
+  describe('#currency', () => {
+    expect(Money.dollar(1).currency()).toEqual('USD');
+    expect(Money.franc(1).currency()).toEqual('USD');
+  })
+})
 
 describe('Dollar', () => {
   describe("#times", () => {
@@ -19,7 +25,7 @@ describe('Dollar', () => {
       expect(Money.dollar(5).equals(Money.dollar(6))).toBe(false);
     })
     test('$5 != 5CHF', () => {
-      expect(Money.dollar(5).equals(new Franc(5))).toBe(false);
+      expect(Money.dollar(5).equals(Money.franc(5))).toBe(false);
     })
   })
 })

@@ -1,6 +1,7 @@
 
 export default abstract class Money {
   protected amount: number;
+  public readonly currency: string;
 
   abstract times(multiplier: number): Money
 
@@ -22,6 +23,7 @@ export class Dollar extends Money {
   constructor(amount: number) {
     super()
     this.amount = amount
+    this.currency = 'USD'
   }
 
   public times(multiplier: number): Money {
