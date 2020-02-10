@@ -16,29 +16,15 @@ export default class Money {
     return this._currency;
   }
   public static dollar(amount: number): Money {
-    return new Dollar(amount, 'USD')
+    return new Money(amount, 'USD')
   }
 
   public static franc(amount: number): Money {
-    return new Franc(amount, 'CHF')
+    return new Money(amount, 'CHF')
   }
 
   public equals(object: Object): boolean {
     const money = <Money> object
     return this.amount === money.amount && this.currency() === money.currency();
-  }
-}
-
-export class Dollar extends Money {
-
-  public times(multiplier: number): Money {
-    return new Money(this.amount * multiplier, this.currency());
-  }
-}
-
-export class Franc extends Money {
-
-  public times(multiplier: number): Franc {
-    return new Money(this.amount * multiplier, this.currency());
   }
 }
