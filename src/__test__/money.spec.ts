@@ -1,9 +1,10 @@
 import Money from '../money';
+const assert = require('assert');
 
 describe('Money', () => {
   describe('#currency', () => {
     expect(Money.dollar(1).currency()).toEqual('USD');
-    expect(Money.franc(1).currency()).toEqual('USD');
+    expect(Money.franc(1).currency()).toEqual('CHF');
   })
 })
 

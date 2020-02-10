@@ -12,5 +12,5 @@
 - [x] equalsの一般化
 - [ ] timesの一般化
 - [x] FrancとDollarを比較する
-- [ ] 通過の概念
+- [x] 通過の概念
 - [ ] francのtimesメソッドのテストを削除する
