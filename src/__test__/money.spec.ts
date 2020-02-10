@@ -1,7 +1,21 @@
+import Bank from '../bank';
+import Expression from '../expression'
 import Money from '../money';
+
 const assert = require('assert');
 
 describe('Money', () => {
+  describe('#plus', () => {
+    test('Simple addition', () => {
+      const five: Money = Money.dollar(5);
+      const sum: Expression = five.plus(five);
+      const bank: Bank = new Bank()
+      const reduced = bank.reduce(sum, 'USD');
+
+      expect(reduced).toEqual(Money.dollar(10));
+    })
+  })
+
   describe('#currency', () => {
     expect(Money.dollar(1).currency()).toEqual('USD');
     expect(Money.franc(1).currency()).toEqual('CHF');
