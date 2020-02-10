@@ -31,6 +31,14 @@ describe('Money', () => {
       expect(result).toEqual(Money.dollar(1));
     })
 
+    test('2CHF -> 1$', () => {
+      const bank = new Bank();
+      bank.addRate('CHF', 'USD', 2);
+      const result: Money = bank.reduce(Money.franc(2), 'USD');
+
+      expect(result).toEqual(Money.dollar(1));
+    })
+
     test('$5 + $5 = $10', () => {
       const five: Money = Money.dollar(5);
       const sum: Expression = five.plus(five);
