@@ -1,5 +1,5 @@
 
-export default abstract class Money {
+export default class Money {
   protected amount: number;
   protected _currency: string;
 
@@ -8,7 +8,9 @@ export default abstract class Money {
     this._currency = currency
   }
 
-  abstract times(multiplier: number): Money
+  public times(multiplier: number): Money {
+    return new Money(this.amount * multiplier, this.currency());
+  }
 
   public currency(): string {
     return this._currency;
@@ -23,20 +25,20 @@ export default abstract class Money {
 
   public equals(object: Object): boolean {
     const money = <Money> object
-    return this.amount === money.amount && this.constructor.name === money.constructor.name;
+    return this.amount === money.amount && this.currency() === money.currency();
   }
 }
 
 export class Dollar extends Money {
 
   public times(multiplier: number): Money {
-    return Money.dollar(this.amount * multiplier)
+    return new Money(this.amount * multiplier, this.currency());
   }
 }
 
 export class Franc extends Money {
 
   public times(multiplier: number): Franc {
-    return Money.franc(this.amount * multiplier)
+    return new Money(this.amount * multiplier, this.currency());
   }
 }
