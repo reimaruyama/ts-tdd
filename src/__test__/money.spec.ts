@@ -1,12 +1,37 @@
 import Bank from '../bank';
 import Expression from '../expression'
 import Money from '../money';
+import Sum from '../sum';
 
 const assert = require('assert');
 
 describe('Money', () => {
   describe('#plus', () => {
-    test('Simple addition', () => {
+    test('Plus return Sum', () => {
+      const five: Money = Money.dollar(5);
+      const result: Expression = five.plus(five);
+      const sum: Sum = <Sum> result;
+
+      expect(sum.augend).toEqual(five);
+      expect(sum.addend).toEqual(five);
+    })
+
+    test('$3 + $4 = $7, reduce -> $7', () => {
+      const sum: Expression = new Sum(Money.dollar(3), Money.dollar(4));
+      const bank: Bank = new Bank();
+      const result: Money = bank.reduce(sum, 'USD');
+
+      expect(Money.dollar(7)).toEqual(result);
+    })
+
+    test('Bank.reduce(Money)', () => {
+      const bank: Bank = new Bank;
+      const result: Money = bank.reduce(Money.dollar(1), 'USD');
+
+      expect(result).toEqual(Money.dollar(1));
+    })
+
+    test('$5 + $5 = $10', () => {
       const five: Money = Money.dollar(5);
       const sum: Expression = five.plus(five);
       const bank: Bank = new Bank()
