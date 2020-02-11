@@ -12,13 +12,16 @@ export default class Sum implements Expression {
   }
 
   public plus(added: Expression): Expression {
-    // TODO: implement
-    return Money.dollar(0);
+    return new Sum(this, added)
   }
 
   public reduce(bank: Bank, to: string) {
     const amount: number = this.augend.reduce(bank, to).amount + this.addend.reduce(bank, to).amount;
 
     return new Money(amount, to);
+  }
+
+  public times(multiplier: number) {
+    return new Sum(this.augend.times(multiplier), this.addend.times(multiplier));
   }
 }

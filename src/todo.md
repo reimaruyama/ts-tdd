@@ -1,4 +1,4 @@
-- [ ] 5$ + 10CHF = 10$ (レートが2:1の場合)
+- [x] 5$ + 10CHF = 10$ (レートが2:1の場合)
 - [x] $5 * 2 = $10
 - [x] amountをpriateにする
 - [x] Dollarの副作用を解決する
@@ -15,9 +15,9 @@
 - [x] 通過の概念
 - [x] francのtimesメソッドのテストを削除する
 - [x] 5$ + 5$ = 10$
-- [ ] 5$ + 5$ が Moneyを返す
+- [] 5$ + 5$ が Moneyを返す
 - [x] Bank.reduceにMoneyを渡すテスト
 - [x] 2フランを1ドルに変換するテスト
 - [x] reduce(Bank, String)
-- [ ] Sum#plusを実装する
-- [ ] Expression#timesを実装する
+- [x] Sum#plusを実装する
+- [x] Expression#timesを実装する

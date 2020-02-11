@@ -48,12 +48,20 @@ describe('Money', () => {
       expect(reduced).toEqual(Money.dollar(10));
     })
 
+    /*
+    test('$5 + $5 -> Money', () => {
+      const sum: Expression = Money.dollar(1).plus(Money.dollar(1));
+
+      expect(sum instanceof Money).toBeTruthy;
+    })
+    */
+
     test('$5 + 10CHF = $10', () => {
       const fiveBucks: Expression = Money.dollar(5);
-      const fiveFranc: Expression = Money.franc(10);
+      const tenFranc: Expression = Money.franc(10);
       const bank: Bank = new Bank();
       bank.addRate('CHF', 'USD', 2);
-      const result = bank.reduce(fiveBucks.plus(fiveFranc), 'USD')
+      const result = bank.reduce(fiveBucks.plus(tenFranc), 'USD')
 
       expect(result).toEqual(Money.dollar(10))
     })
@@ -62,6 +70,28 @@ describe('Money', () => {
       const rate = new Bank().rate('USD', 'USD');
 
       expect(rate).toEqual(1);
+    })
+
+    test('Sum#plus', () => {
+      const fiveBucks: Expression = Money.dollar(5);
+      const tenFranc: Expression = Money.franc(10);
+      const bank: Bank = new Bank();
+      bank.addRate('CHF', 'USD', 2);
+      const sum: Expression = new Sum(fiveBucks, tenFranc).plus(fiveBucks);
+      const result = bank.reduce(sum, 'USD')
+
+      expect(result).toEqual(Money.dollar(15))
+    })
+
+    test('Sum#times', () => {
+      const fiveBucks: Expression = Money.dollar(5);
+      const tenFranc: Expression = Money.franc(10);
+      const bank: Bank = new Bank();
+      bank.addRate('CHF', 'USD', 2);
+      const sum: Expression = new Sum(fiveBucks, tenFranc).times(2);
+      const result = bank.reduce(sum, 'USD')
+
+      expect(result).toEqual(Money.dollar(20))
     })
   })
 
