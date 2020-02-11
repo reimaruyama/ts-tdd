@@ -47,6 +47,12 @@ describe('Money', () => {
 
       expect(reduced).toEqual(Money.dollar(10));
     })
+
+    test('USD -> USD rates is 1', () => {
+      const rate = new Bank().rate('USD', 'USD');
+
+      expect(rate).toEqual(1);
+    })
   })
 
   describe('#currency', () => {

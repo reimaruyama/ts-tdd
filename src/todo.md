@@ -14,7 +14,8 @@
 - [x] FrancとDollarを比較する
 - [x] 通過の概念
 - [x] francのtimesメソッドのテストを削除する
-- [ ] 5$ + 5$ = 10$
+- [x] 5$ + 5$ = 10$
 - [ ] 5$ + 5$ が Moneyを返す
 - [x] Bank.reduceにMoneyを渡すテスト
-- [ ] 2フランを1ドルに変換するテスト
+- [x] 2フランを1ドルに変換するテスト
+- [x] reduce(Bank, String)

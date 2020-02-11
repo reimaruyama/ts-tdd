@@ -1,5 +1,6 @@
 import Money from './money'
+import Bank from './bank'
 
 export default interface Expression {
-  reduce(to: string): Money;
+  reduce(bank: Bank, to: string): Money;
 }
