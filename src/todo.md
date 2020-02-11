@@ -19,3 +19,5 @@
 - [x] Bank.reduceにMoneyを渡すテスト
 - [x] 2フランを1ドルに変換するテスト
 - [x] reduce(Bank, String)
+- [ ] Sum#plusを実装する
+- [ ] Expression#timesを実装する

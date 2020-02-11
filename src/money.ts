@@ -31,14 +31,18 @@ export default class Money implements Expression {
 
   public reduce(bank: Bank, to: string): Money {
     const rate = bank.rate(this.currency(), to)
+    if (!rate) {
+      throw Error;
+    }
+
     return new Money(this.amount / rate, to);
   }
 
-  public plus(addend: Money): Expression {
+  public plus(addend: Expression): Expression {
     return new Sum(this, addend);
   }
 
-  public times(multiplier: number): Money {
+  public times(multiplier: number): Expression {
     return new Money(this.amount * multiplier, this.currency());
   }
 }
